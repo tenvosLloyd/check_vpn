@@ -14,11 +14,20 @@ exports.handler = async function (event, context) {
 
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // Allow all origins (or specify your GitHub Pages domain)
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
       body: JSON.stringify(data),
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // Ensure CORS headers are present for errors too
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      },
       body: JSON.stringify({ error: "Error fetching VPN data" }),
     };
   }
