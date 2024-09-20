@@ -6,7 +6,7 @@ exports.handler = async function (event, context) {
   const vpnApiToken = process.env.VPN_API_TOKEN;
 
   const ip = event.queryStringParameters.ip; // Get the user IP from the query parameters
-  const vpnApiUrl = `https://vpnapi.io/api/${ip}?key=${"3c641b5c07f4444dbaeba4a107d99ada"}`;
+  const vpnApiUrl = `https://vpnapi.io/api/${ip}?key=${vpnApiToken}`;
 
   try {
     const response = await fetch(vpnApiUrl);
