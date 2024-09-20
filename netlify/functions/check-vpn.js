@@ -1,7 +1,8 @@
-const fetch = require("node-fetch");
-
 // This will handle the API call to VPNAPI.io
 exports.handler = async function (event, context) {
+  // Use dynamic import to load node-fetch
+  const fetch = (await import("node-fetch")).default;
+
   // Define your VPNAPI.io token (use environment variables to hide this)
   const vpnApiToken = process.env.VPN_API_TOKEN;
 
